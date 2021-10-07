@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Game Reviews Done Quick</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <h1>Game Reviews Done Quick</h1>
+    <container>
+        <br>
+        <h2>Categories</h2>
+        <div class="categories">
+            <ul>
+                <li th:each="category: ${categories}" th:text="${category.name}">Video Games</li>
+            </ul>
+        </div>
+        <br>
+        <h2>Types</h2>
+        <div class="tags">
+            <ul>
+                <li th:each="hashtag: ${hashtags}" th:text="${hashtag.name}">MMO</li>
+            </ul>
+        </div>
+    </container>
+</body>
+</html>
