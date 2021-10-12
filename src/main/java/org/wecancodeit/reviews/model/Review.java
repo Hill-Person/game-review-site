@@ -1,32 +1,42 @@
 package org.wecancodeit.reviews.model;
 
-import java.util.Arrays;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import java.util.Collection;
 
+@Entity
 public class Review {
-    private Category category;
+
+    @Id
+    @GeneratedValue
+    private long id;
     private String name;
     private String origin;
     private String releaseYear;
     private String description;
     private String similarGames;
-    private String review;
-    private Collection<Hashtag> hashtags;
+    private String analysis;
+//    @ManyToMany
+//    private Hashtag hashtag;
+    @ManyToOne
+    private Category category;
 
-    public Review(String name, String origin, String releaseYear, String description, String similarGames, String review, Category category, Hashtag... gameHashtags) {
+    public Review(String name, String origin, String releaseYear, String description, String similarGames, String analysis, Category category) {
         this.name = name;
         this.origin = origin;
         this.releaseYear = releaseYear;
         this.description = description;
         this.similarGames = similarGames;
-        this.review = review;
+        this.analysis = analysis;
         this.category = category;
-        this.hashtags = Arrays.asList(gameHashtags);
+        //this.hashtag = hashtag;
     }
 
-    public void addHashtag(Hashtag hashtag){
-        hashtags.add(hashtag);
-    }
+//    public void addHashtag(Hashtag hashtag){
+//        hashtags.add(hashtag);
+//    }
 
     public String getName() {
         return name;
@@ -48,11 +58,11 @@ public class Review {
         return similarGames;
     }
 
-    public String getReview() {
-        return review;
+    public String getAnalysis() {
+        return analysis;
     }
 
-    public Collection<Hashtag> getHashtags() {
-        return hashtags;
-    }
+//    public Collection<Hashtag> getHashtags() {
+//        return hashtags;
+//    }
 }
