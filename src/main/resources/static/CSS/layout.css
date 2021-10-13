@@ -9,7 +9,16 @@
     display: flex;
     flex-wrap: wrap;
 }
+
+.hashtags-container {
+    display: flex;
+    flex-wrap: wrap;
+}
 .item{
+    width: 100%;
+}
+
+.hashitem {
     width: 100%;
 }
 
