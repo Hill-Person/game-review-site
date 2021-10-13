@@ -16,6 +16,8 @@ h1{
     text-align: center;
     justify-content: center;
     font-size: xx-large;
+    color: azure;
+    border-radius: 15px;
 }
 h2{
     display: flex;
@@ -68,22 +70,6 @@ li {
     border-radius: 15px;
 }
 
-.squad-leader-image {
-    display: flex;
-    justify-content: center;
-    border-radius: 15px;
-    margin-left: auto;
-    width: 50%;
-}
-
-.new-world-image {
-    display: flex;
-    justify-content: center;
-    border-radius: 25x;
-    height: fit-content;
-    width: fit-content;
-}
-
 a:link {
     color: white;
 }
@@ -94,4 +80,9 @@ a:visited {
 
 a:hover {
     color: rgb(63, 61, 61);
+}
+
+.image50 {
+    width: 75%;
+    align-items: center;
 }

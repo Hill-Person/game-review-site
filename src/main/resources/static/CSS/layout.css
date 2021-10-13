@@ -1,7 +1,20 @@
-.catagories-container {
+/* .catagories-container {
     display: grid;
     grid-template-columns: 500px 500px;
     margin: 2rem auto;
     width: 1000px;
 
+} */
+.container{
+    display: flex;
+    flex-wrap: wrap;
+}
+.item{
+    width: 100%;
+}
+
+@media screen and (min-width: 600px) {
+    .item{
+        width: 48%;
+    }
 }
