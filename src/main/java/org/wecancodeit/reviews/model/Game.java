@@ -4,10 +4,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import java.util.Collection;
+import java.util.Arrays;
 
 @Entity
-public class Review {
+public class Game {
+
 
     @Id
     @GeneratedValue
@@ -16,24 +17,28 @@ public class Review {
     private String origin;
     private String releaseYear;
     private String description;
+    private double reviewerRating;
     private String similarGames;
-    private String analysis;
-//    @ManyToMany
-//    private Hashtag hashtag;
+    private String imageUrl;
+
+
     @ManyToOne
     private Category category;
 
-    public Review(String name, String origin, String releaseYear, String description, String similarGames, String analysis, Category category) {
+    public Game(String name, String origin, String releaseYear, String description, double reviewerRating, Category category, String similarGames,String imageUrl) {
         this.name = name;
         this.origin = origin;
         this.releaseYear = releaseYear;
         this.description = description;
         this.similarGames = similarGames;
-        this.analysis = analysis;
+        this.reviewerRating = reviewerRating;
         this.category = category;
+        this.imageUrl = imageUrl;
         //this.hashtag = hashtag;
     }
 
+    public Game() {
+    }
 //    public void addHashtag(Hashtag hashtag){
 //        hashtags.add(hashtag);
 //    }
@@ -58,9 +63,14 @@ public class Review {
         return similarGames;
     }
 
-    public String getAnalysis() {
-        return analysis;
+    public double getReviewerRating() {
+        return reviewerRating;
     }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
 
 //    public Collection<Hashtag> getHashtags() {
 //        return hashtags;

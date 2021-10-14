@@ -3,14 +3,10 @@ package org.wecancodeit.reviews;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 import org.wecancodeit.reviews.model.Category;
-import org.wecancodeit.reviews.model.Hashtag;
-import org.wecancodeit.reviews.model.Review;
+import org.wecancodeit.reviews.model.Game;
 import org.wecancodeit.reviews.repositories.CategoryRepository;
 import org.wecancodeit.reviews.repositories.HashtagRepository;
 import org.wecancodeit.reviews.repositories.ReviewRepository;
-
-import java.util.ArrayList;
-import java.util.Collection;
 
 @Component
 public class Populator implements CommandLineRunner {
@@ -28,8 +24,8 @@ public class Populator implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-            Category videoGame = new Category("Video Game", "a game played with beta males over the internet.");
-            Category boardGame = new Category("Board Game", "are a game played with friends around a table.");
+            Category videoGame = new Category("Video Game", "a game played with beta males over the internet.","/images/videoGame.jpg");
+            Category boardGame = new Category("Board Game", "are a game played with friends around a table.","/images/tableTop.jpg");
             categoryRepo.save(videoGame);
             categoryRepo.save(boardGame);
 
@@ -40,12 +36,15 @@ public class Populator implements CommandLineRunner {
 //            hashtagRepo.save(diceRolling);
 //            hashtagRepo.save(strategy);
 
-            Review newWorld = new Review("New World", "Amazon Game Studios", "2021", "an MMO", "WoW & Planetside 2", "8.5", videoGame);
-            Review ludo = new Review("Ludo", "India", "c. 1896", "dice rolling game", "Pachisi", "10", boardGame);
-            Review squadLeader = new Review("Squad Leader", "Avalon Hill", "1977", "tabletop military strategy", "Axis & Allies", "8", boardGame);
+            Game newWorld = new Game("New World","Amazon Game Studios","2021","MMO",8.5,videoGame,"WoW & Planetside 2","/images/newworld.jpeg");
+//            Game newWorld = new Game("New World", "Amazon Game Studios", "2021", "an MMO", "WoW & Planetside 2", "8.5", videoGame);
+            Game ludo = new Game("Ludo", "India", "c. 1896", "dice rolling game", 10, boardGame,"Pachisi","");
+            Game squadLeader = new Game("Squad Leader", "Avalon Hill", "1977", "tabletop military strategy", 8, boardGame,"Axis and Allies","/images/squadleader.jpg");
             reviewRepo.save(newWorld);
             reviewRepo.save(ludo);
             reviewRepo.save(squadLeader);
+
+
 
         }
 }

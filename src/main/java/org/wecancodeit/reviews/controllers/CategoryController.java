@@ -2,6 +2,7 @@ package org.wecancodeit.reviews.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.wecancodeit.reviews.repositories.CategoryRepository;
 import org.wecancodeit.reviews.repositories.HashtagRepository;
 import org.wecancodeit.reviews.repositories.ReviewRepository;
@@ -19,8 +20,12 @@ public class CategoryController {
         this.hashtagRepo = hashtagRepo;
     }
 
-    public String showCategories(Model model){
-        return
+    @RequestMapping("/categories")
+    public String getCategories(Model model){
+        model.addAttribute("categories",categoryRepo.findAll());
+
+        return "categories";
+
     }
-    )
+
 }

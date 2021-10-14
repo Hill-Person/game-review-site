@@ -1,7 +1,5 @@
 package org.wecancodeit.reviews.model;
 
-import org.wecancodeit.reviews.repositories.ReviewRepository;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -16,12 +14,18 @@ public class Category {
     private long id;
     private String name;
     private String description;
-    @OneToMany(mappedBy = "category")
-    private Collection<Review> reviews;
+    private String imageUrl;
 
-    public Category(String name, String description) {
+    @OneToMany(mappedBy = "category")
+    private Collection<Game> games;
+
+    public Category(String name, String description, String imageUrl) {
         this.name = name;
         this.description = description;
+        this.imageUrl = imageUrl;
+    }
+
+    public Category() {
     }
 
     public String getName() {
@@ -30,5 +34,9 @@ public class Category {
 
     public String getDescription() {
         return description;
+    }
+
+    public Collection<Game> getGames() {
+        return games;
     }
 }
