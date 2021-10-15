@@ -27,3 +27,48 @@
         width: 48%;
     }
 }
+
+.reviewBody{
+    background-color: rgb(60, 134, 60);
+    margin: 20px;
+    color: azure;
+}
+
+.review-container{
+    display: flex;
+}
+
+.reviewImage{
+    width: 44vw;
+}
+
+.game-info{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.categories-body{
+    background-color: rgb(60, 134, 60);
+    margin: 20px;
+    color: azure;
+}
+
+.blurb-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.category-image{
+    width: 25vw;
+}
+
+.blurb-text-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+
