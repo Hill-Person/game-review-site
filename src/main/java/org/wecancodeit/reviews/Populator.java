@@ -24,8 +24,8 @@ public class Populator implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-            Category videoGame = new Category("Video Game", "a game played with beta males over the internet.","/images/videoGame.jpg");
-            Category boardGame = new Category("Board Game", "are a game played with friends around a table.","/images/tableTop.jpg");
+            Category videoGame = new Category("Video Games", "a game played with beta males over the internet.","/images/videoGame.jpg");
+            Category boardGame = new Category("Board Games", "a game played with friends around a table.","/images/tableTop.jpg");
             categoryRepo.save(videoGame);
             categoryRepo.save(boardGame);
 
@@ -36,10 +36,9 @@ public class Populator implements CommandLineRunner {
 //            hashtagRepo.save(diceRolling);
 //            hashtagRepo.save(strategy);
 
-            Game newWorld = new Game("New World","Amazon Game Studios","2021","MMO",8.5,videoGame,"WoW & Planetside 2","/images/newworld.jpeg");
-//            Game newWorld = new Game("New World", "Amazon Game Studios", "2021", "an MMO", "WoW & Planetside 2", "8.5", videoGame);
-            Game ludo = new Game("Ludo", "India", "c. 1896", "dice rolling game", 10, boardGame,"Pachisi","");
-            Game squadLeader = new Game("Squad Leader", "Avalon Hill", "1977", "tabletop military strategy", 8, boardGame,"Axis and Allies","/images/squadleader.jpg");
+            Game newWorld = new Game("New World","Amazon Game Studios","2021","A MMORPG with a focus on Witcher style attack, dodge, and roll combat.",8.5, videoGame,"Elder Scrolls Online & Neverwinter","/images/newworld.jpeg");
+            Game ludo = new Game("Ludo", "India", "c. 1896", "A strategy board game where you race from start to finish according to the rolls of a single die.", 10, boardGame,"Pachisi & Trouble","/images/ludo.jpg");
+            Game squadLeader = new Game("Squad Leader", "Avalon Hill", "1977", "Command squads of soldiers in tactical WWII combat.", 8, boardGame,"Axis and Allies","/images/squadleader.jpg");
             reviewRepo.save(newWorld);
             reviewRepo.save(ludo);
             reviewRepo.save(squadLeader);

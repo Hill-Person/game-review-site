@@ -39,4 +39,8 @@ public class Category {
     public Collection<Game> getGames() {
         return games;
     }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
 }

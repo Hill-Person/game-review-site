@@ -2,6 +2,7 @@ package org.wecancodeit.reviews.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.wecancodeit.reviews.repositories.CategoryRepository;
 import org.wecancodeit.reviews.repositories.HashtagRepository;
@@ -23,9 +24,13 @@ public class CategoryController {
     @RequestMapping("/categories")
     public String getCategories(Model model){
         model.addAttribute("categories",categoryRepo.findAll());
-
         return "categories";
 
     }
 
+    @RequestMapping("/categories/{name}")
+    public String showCampus(Model model, @PathVariable String name) {
+        model.addAttribute("category", categoryRepo.findByNameIgnoreCase(name));
+        return "category";
+    }
 }

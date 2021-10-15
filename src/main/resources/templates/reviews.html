@@ -4,69 +4,43 @@
 <head>
     <meta charset="UTF-8">
     <title>Game Reviews Done Quick</title>
-    <link rel="stylesheet" href="./../static/CSS/Style.css">
-    <link rel="stylesheet" href="./../static/CSS/layout.css">
+    <link rel="stylesheet" href="/CSS/Style.css">
+    <link rel="stylesheet" href="/CSS/layout.css">
 </head>
 
 <body class= "body">
-    <h1>Game Reviews Done Quick</h1>
-    <container class="container">
-        <section class="item">
-            <h2><a href="./../static/VideoGames.html">Video Games</h2></a>
-                <li class="new-world">New World</li>
-                <img class="image50" src="./../static/images/mmo.jpg" alt="New World">
-                <p>Jeffy Bezos went crazy with this one. In the time he found when he wasn't trying to go to outer space, 
+<h1>Game Reviews Done Quick</h1>
+<div class="container">
+    <section class="item" th:each="category:${categories}">
+        <h2><a href="'/categories/'+${category.id}" th:text="${category.name}">Video Games</a></h2>
+        <ul>
+            <li th:each="game:${category.games}" th:text="${game.name}">
+
+                <img class="image50" th:alt="${game.name}" th:src="${game.imageUrl}">
+                <p th:text="${game.description}">Jeffy Bezos went crazy with this one. In the time he found when he wasn't trying to go to outer space,
                     he made a great MMO. Wow. You can chop down trees to gain experience
                 </p>
 
-            
-        </section>
-        <section class="item">
-            <h2 src="/static/SquadLeader.html"> <a href="/static/TableTopGames.html">Tabletop Games</h2></a>
-                <li class="squad-leader"><a href="./../static/SquadLeader.html"> Squad Leader </a></li>
-                <img class="image50" src="./../static/images/squadleader.jpg" alt="Squad Leader">
-                <article>This game is mainly played by old men who want to be actual WW2 heroes. Hours upon hours are spent reading
-                    the rule book to see what happens if there is a tank in front of the units you want to fire at, as well as
-                    hours upon hours of seeing if the target you are acquiring is actually in line of sight.
-                </article>
-        </section>        
-    </container>
+            </li>
+        </ul>
+    </section>
+    <!--        <section class="item">-->
+    <!--            <h2 src="/static/SquadLeader.html"> <a href="/static/TableTopGames.html">Tabletop Games</h2></a>-->
+    <!--                <li class="squad-leader"><a href="./../static/SquadLeader.html"> Squad Leader </a></li>-->
+    <!--                <img class="image50" src="/images/squadleader.jpg" alt="Squad Leader" th:src="@{'/images/' + ${SquadLeader.jpg}">-->
+    <!--                <article>This game is mainly played by old men who want to be actual WW2 heroes. Hours upon hours are spent reading-->
+    <!--                    the rule book to see what happens if there is a tank in front of the units you want to fire at, as well as-->
+    <!--                    hours upon hours of seeing if the target you are acquiring is actually in line of sight.-->
+    <!--                </article>-->
+    <!--        </section>        -->
+</div>
 
-    <container class="hastags-container">
-        <section class="hashitem">
-            <h2><a href="./../static/Hashtags.html">Search Games By Tag</a></h2>
-                
-        </section>     
-    </container>
+<container class="hastags-container">
+    <section class="hashitem">
+        <h2><a href="./../static/Hashtags.html">Search Games By Tag</a></h2>
 
-        <!-- <br>
-        <h2>Categories</h2>
-        <div class="categories">
-            <ul>
-                <li>Video Games</li>
-                <li>Tabletop Games</li>
-            </ul>
-            <ul>
-            <img class="videogame" src="/static/images/videoGame.jpg" height="200" width="300">
-            <img src="/static/images/tableTop.jpg" height="200" width="300">
-            </ul>
-        </div>
-        <br>
-        <h2>Types</h2>
-        <div class="tags">
-            <ul>
-                <li>#MMO</li>
-                <img src="/static/images/mmo.jpg" height="200" width="300">
-                <li>#FamilyFriendly</li>
-                <img src="/static/images/familyfriendly.jpg" height="200" width="300">
-                <li>#Adventure</li>
-                <img src="/static/images/adventure.jpg" height="200" width="300">
-                <li>#Action</li>
-                <img src="/static/images/action.jpg" height="200" width="300">
-            </ul>
-        </div> -->
+    </section>
+</container>
 
-
-    
 </body>
 </html>
