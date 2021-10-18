@@ -71,6 +71,9 @@ public class Game {
         return imageUrl;
     }
 
+    public long getId() {
+        return id;
+    }
 
 //    public Collection<Hashtag> getHashtags() {
 //        return hashtags;
