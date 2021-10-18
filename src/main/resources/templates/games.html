@@ -13,8 +13,8 @@
 <div class="container">
     <section class="item" th:each="category:${categories}">
         <h2><a th:href="'/categories/'+${category.name}" th:text="${category.name}">Video Games</a></h2>
-        <ul>
-            <li th:each="game:${category.games}">
+        <ul class="home-games">
+            <li class="game-brief" th:each="game:${category.games}">
                 <h4  th:text="${game.name}"></h4>
                 <a th:href="'/games/'+${game.id}"><img class="image50" lt="${game.name}" th:src="${game.imageUrl}"></a>
                 <p th:text="${game.description}">Jeffy Bezos went crazy with this one. In the time he found when he wasn't trying to go to outer space,

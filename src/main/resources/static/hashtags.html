@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en"
       xmlns:th="http://www.thymeleaf.org">
 <head>
@@ -8,11 +9,13 @@
 </head>
 <body class= "body">
     <h1> Game Reviews Done Quick</h1>
-    <container class="container">
-        <section class="item">
-            <h2><a href="/static/mmopage.html">#MMO</h2></a>
-            <img src="./../static/images/mmo.jpg" class="image50">
-            <article>A variety of video game played online with thousands of other people. This variety of video game exploded in popularity in the 2000's.</article>
+    <div class="container">
+        <section>
+            <li class="item" th:each="hashtag:${hashtags}">
+                <h2 th:text="'Hashtag: '+${hashtag.name}"></h2>
+                <a th:href="" <img src="./../static/images/mmo.jpg" class="image50">
+                <article>A variety of video game played online with thousands of other people. This variety of video game exploded in popularity in the 2000's.</article>
+            </li>
         </section>
         <section class="item">
             <h2>#FamilyFriendly</h2>
@@ -29,5 +32,5 @@
             <img src="./../static/images/action.jpg" class="image50">
             <article>Action games often involve quick decisions made in the spur of the moment. What will you do?!?!?!!?!?</article>
         </section>          
-    </container>
+    </div>
 <body>

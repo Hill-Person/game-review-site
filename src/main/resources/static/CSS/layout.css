@@ -81,5 +81,29 @@
     height: 55vh;
 }
 
+.category-container{
+    display: flex;
+}
+
+.category-list{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.game-brief{
+   display: flex;
+   flex-direction: column;
+   justify-content: flex-start;
+   min width: 400px;
+}
+
+.home-games {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
 
 

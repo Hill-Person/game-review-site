@@ -1,10 +1,9 @@
 package org.wecancodeit.reviews.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 import java.util.Arrays;
+import java.util.Collection;
+import java.util.Objects;
 
 @Entity
 public class Game {
@@ -21,11 +20,13 @@ public class Game {
     private String similarGames;
     private String imageUrl;
 
-
     @ManyToOne
     private Category category;
 
-    public Game(String name, String origin, String releaseYear, String description, double reviewerRating, Category category, String similarGames,String imageUrl) {
+    @ManyToMany
+    private Collection<Hashtag> hashtags;
+
+    public Game(String name, String origin, String releaseYear, String description, double reviewerRating, Category category, String similarGames,String imageUrl, Hashtag... hashtag) {
         this.name = name;
         this.origin = origin;
         this.releaseYear = releaseYear;
@@ -34,7 +35,7 @@ public class Game {
         this.reviewerRating = reviewerRating;
         this.category = category;
         this.imageUrl = imageUrl;
-        //this.hashtag = hashtag;
+        this.hashtags = Arrays.asList(hashtag);
     }
 
     public Game() {
@@ -75,7 +76,25 @@ public class Game {
         return id;
     }
 
-//    public Collection<Hashtag> getHashtags() {
-//        return hashtags;
-//    }
+    public Category getCategory() {
+        return category;
+    }
+
+    public Collection<Hashtag> getHashtags() {
+        return hashtags;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Game game = (Game) o;
+        return id == game.id && Double.compare(game.reviewerRating, reviewerRating) == 0 && Objects.equals(name, game.name) && Objects.equals(origin, game.origin) && Objects.equals(releaseYear, game.releaseYear) && Objects.equals(description, game.description) && Objects.equals(similarGames, game.similarGames) && Objects.equals(imageUrl, game.imageUrl) && Objects.equals(category, game.category) && Objects.equals(hashtags, game.hashtags);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, origin, releaseYear, description, reviewerRating, similarGames, imageUrl, category, hashtags);
+    }
+
 }

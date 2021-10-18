@@ -5,32 +5,31 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.wecancodeit.reviews.repositories.CategoryRepository;
-import org.wecancodeit.reviews.repositories.HashtagRepository;
 import org.wecancodeit.reviews.repositories.GameRepository;
+import org.wecancodeit.reviews.repositories.HashtagRepository;
 
 @Controller
-public class CategoryController {
+public class HashtagController {
 
     private GameRepository reviewRepo;
     private CategoryRepository categoryRepo;
     private HashtagRepository hashtagRepo;
 
-    public CategoryController(GameRepository reviewRepo, CategoryRepository categoryRepo, HashtagRepository hashtagRepo) {
+    public HashtagController(GameRepository reviewRepo, CategoryRepository categoryRepo, HashtagRepository hashtagRepo) {
         this.reviewRepo = reviewRepo;
         this.categoryRepo = categoryRepo;
         this.hashtagRepo = hashtagRepo;
     }
 
-    @RequestMapping("/categories")
-    public String getCategories(Model model){
-        model.addAttribute("categories",categoryRepo.findAll());
-        return "categories";
-
+    @RequestMapping("/hashtags")
+    public String showHashtags(Model model){
+        model.addAttribute("hashtags", hashtagRepo.findAll());
+        return "hashtags";
     }
 
-    @RequestMapping("/categories/{name}")
-    public String showCategory(Model model, @PathVariable String name) {
-        model.addAttribute("category", categoryRepo.findByNameIgnoreCase(name));
-        return "category";
+    @RequestMapping("/hashtags/{name}")
+    public String showHashtag(Model model, @PathVariable String name){
+        model.addAttribute("hashtag",hashtagRepo.findByNameIgnoreCase(name));
+        return "hashtag";
     }
 }
