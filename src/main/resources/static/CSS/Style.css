@@ -5,10 +5,20 @@
     padding: 0;
     font: 700 20px 'Source Code Pro';
 }
+@keyframes body{
+    from {background-color: rgb(60, 134, 60);}
+    to {background-color: rgb(109, 218, 109);}
+  }
+
+
+
 .body{
     background-color: rgb(60, 134, 60);
     margin: 20px;
     color: azure;
+    animation-name: body;
+    animation-duration: 4s;
+    animation-direction: alternate;
 }
 h1{
     display: flex;
@@ -18,14 +28,15 @@ h1{
     font-size: xx-large;
     color: azure;
     border-radius: 15px;
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgb(75, 75, 75) 90%);
 }
 h2{
     display: flex;
     text-align: center;
     justify-content: center;
     font-size: xx-large;
-    background-color: rgb(155, 153, 153);
     border-radius: 15px;
+    background-image: linear-gradient(to bottom, rgb(44, 44, 44), rgb(75, 75, 75) 90%);
 }
 ul{
     display: flex;
@@ -85,4 +96,42 @@ a:hover {
 .image50 {
     width: 75%;
     align-items: center;
+    border-radius-50;
 }
+
+.game-brief {
+    background-color: black;
+    border-radius: 15px;
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgb(75, 75, 75) 90%);
+
+    
+}
+
+.item {
+    animation: moveitem 5s infinite;
+    animation-timing-function: ease;
+}
+
+@keyframes moveitem {
+    from {left: 0px}
+    to{left: 300px}
+}
+  
+
+.blurb-container {
+    background-color: black;
+    border-radius: 15px;
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgb(75, 75, 75) 90%);
+}
+
+.category-list {
+    background-color: black;
+    border-radius: 15px;
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgb(75, 75, 75) 90%);
+}
+
+.category-list {
+  position: relative;
+}
+
+

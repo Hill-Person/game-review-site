@@ -13,8 +13,8 @@
         <section>
             <li class="item" th:each="hashtag:${hashtags}">
                 <h2 th:text="'Hashtag: '+${hashtag.name}"></h2>
-                <a th:href="" <img src="./../static/images/mmo.jpg" class="image50">
-                <article>A variety of video game played online with thousands of other people. This variety of video game exploded in popularity in the 2000's.</article>
+                <a th:href="'/hashtags/'+${hashtag.name}"> <img th:src="${hashtag.imageUrl}" lt="${hashtag.name}" class="image50"></a>
+                <article th:text="${hashtag.description}">A variety of video game played online with thousands of other people. This variety of video game exploded in popularity in the 2000's.</article>
             </li>
         </section>
         <section class="item">
