@@ -16,31 +16,65 @@
         <ul class="home-games">
             <li class="game-brief" th:each="game:${category.games}">
                 <h4  th:text="${game.name}"></h4>
-                <a th:href="'/games/'+${game.id}"><img class="image50" lt="${game.name}" th:src="${game.imageUrl}"></a>
-                <p th:text="${game.description}">Jeffy Bezos went crazy with this one. In the time he found when he wasn't trying to go to outer space,
-                    he made a great MMO. Wow. You can chop down trees to gain experience
+                <a th:href="'/games/'+${game.name}"><img class="image50" lt="${game.name}" th:src="${game.imageUrl}"></a>
+                <p th:text="${game.description}">
                 </p>
 
             </li>
         </ul>
     </section>
-    <!--        <section class="item">-->
-    <!--            <h2 src="/static/SquadLeader.html"> <a href="/static/TableTopGames.html">Tabletop Games</h2></a>-->
-    <!--                <li class="squad-leader"><a href="./../static/SquadLeader.html"> Squad Leader </a></li>-->
-    <!--                <img class="image50" src="/images/squadleader.jpg" alt="Squad Leader" th:src="@{'/images/' + ${SquadLeader.jpg}">-->
-    <!--                <article>This game is mainly played by old men who want to be actual WW2 heroes. Hours upon hours are spent reading-->
-    <!--                    the rule book to see what happens if there is a tank in front of the units you want to fire at, as well as-->
-    <!--                    hours upon hours of seeing if the target you are acquiring is actually in line of sight.-->
-    <!--                </article>-->
-    <!--        </section>        -->
 </div>
 
-<container class="hastags-container">
+<div class="hastags-container">
     <section class="hashitem">
-        <h2><a href="./../static/Hashtags.html">Search Games By Tag</a></h2>
+        <h2><a href="/hashtags/">Search Games By Tag</a></h2>
 
     </section>
-</container>
+</div>
+
+<article>Enter your own game review below!</article>
+<br>
+
+<div class="add-game">
+    <form action="/games/add" method="POST">
+        <label for="name">Name: </label><br>
+        <input type="text" id="name" name="name"><br>
+
+        <label for="origin">Publisher: </label><br>
+        <input type="text" id="origin" name="origin"><br>
+
+        <label for="releaseYear">Release Year: </label><br>
+        <input type="text" id="releaseYear" name="releaseYear"><br>
+
+        <label for="description">Description: </label><br>
+        <input type="text" id="description" name="description"><br>
+
+        <label for="reviewerRating">Rating (Out of 10): </label><br>
+        <input type="text" id="reviewerRating" name="reviewerRating"><br>
+
+        <label for="categoryName">Choose a category:</label><br>
+        <select name="categoryName" id="categoryName">
+            <option value="Video Games">Video Game</option>
+            <option value="Board Games">Board Game</option>
+        </select>
+
+        <br>
+
+        <label for="similarGames">Similar Games: </label><br>
+        <input type="text" id="similarGames" name="similarGames"><br>
+
+        <label for="imageUrl">Image URL: </label><br>
+        <input type="text" id="imageUrl" name="imageUrl"><br>
+
+        <label for="reviewBy">Review By: </label><br>
+        <input type="text" id="reviewBy" name="reviewBy"><br>
+
+        <label for="review">Review: </label><br>
+        <input type="text" id="review" name="review"><br>
+
+        <input type="submit" value="Submit">
+    </form>
+</div>
 
 </body>
 </html>

@@ -11,9 +11,6 @@
     <h1>Game Reviews Done Quick</h1>
     <div class="blurb-container">
         <h2 th:text="'Category: ' + ${category.name}"></h2>
-<!--        <section>-->
-<!--            <img class="category-image" th:src="${category.imageUrl}">-->
-<!--        </section>-->
         <div>
             <hr>
             <section th:each="game:${category.games}">

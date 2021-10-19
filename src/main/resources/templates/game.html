@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Squad Leader</title>
+    <link rel="stylesheet" href="/CSS/Style.css">
+    <link rel="stylesheet" href="/CSS/layout.css">
+</head>
+<body class="reviewBody">
+    <h1>Game Reviews Done Quick</h1>
+    <h2 th:text="${game.name}"></h2>
+    <div class="review-container">
+        <section>
+            <img class="reviewImage" th:src="${game.imageUrl}">
+        </section>
+        <div class="review-body-container">
+            <div>
+                <h3 class="game-brief">
+                    <ul class="game-info">
+                        <li th:text="'Creator: ' + ${game.origin}"></li>
+                        <li th:text="'Release Year: ' + ${game.releaseYear}"></li>
+                        <li th:text="'Description: ' + ${game.description}"></li>
+                        <li th:text="'Similar Games: ' + ${game.similarGames}" ></li>
+                        <li th:text="'Review By: ' + ${game.reviewBy}"></li>
+                        <li th:text="'Rating: ' + ${game.reviewerRating}"></li>
+                    </ul>
+                </h3>
+            </div>
+            <hr>
+            <div class="game-brief" th:each="review:${game.reviews}">
+                <p th:text="${review}" class="review-text"></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

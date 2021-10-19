@@ -1,0 +1,24 @@
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Hashtags</title>
+    <link rel="stylesheet" href="/CSS/Style.css">
+    <link rel="stylesheet" href="/CSS/layout.css">
+</head>
+<body class="body">
+    <h1>Game Reviews Done Quick</h1>
+    <div class="blurb-container">
+        <h2 th:text="'Hashtag: ' + ${hashtag.name}"></h2>
+        <ul class="hashtag-item">
+            <hr>
+            <li class="game-brief" th:each="game:${hashtag.games}">
+                <img class="hashtag-image" th:src="${game.imageUrl}">
+                <p th:text="'Title: ' + ${game.name}"></p>
+                <p th:text="'Description: ' + ${game.description}"></p>
+                <p th:text="'Similar Games: ' + ${game.similarGames}"></p>
+                <a href="/static/SquadLeader.html">Read the Review Here!</a>
+            </li>
+        </ul>
+    </div>
+</body>   

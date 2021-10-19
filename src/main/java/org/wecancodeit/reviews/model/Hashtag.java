@@ -25,6 +25,10 @@ public class Hashtag {
         this.imageUrl = imageUrl;
     }
 
+    public Hashtag() {
+
+    }
+
     public String getName() {
         return name;
     }

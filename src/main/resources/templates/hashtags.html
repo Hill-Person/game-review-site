@@ -4,33 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <title>Hashtags</title>
-    <link rel="stylesheet" href="./../static/CSS/Style.css">
-    <link rel="stylesheet" href="./../static/CSS/layout.css">
+    <link rel="stylesheet" href="/CSS/Style.css">
+    <link rel="stylesheet" href="/CSS/layout.css">
 </head>
 <body class= "body">
-    <h1> Game Reviews Done Quick</h1>
+    <h1>Game Reviews Done Quick</h1>
+    <h2>Hashtags</h2>
     <div class="container">
-        <section>
-            <li class="item" th:each="hashtag:${hashtags}">
-                <h2 th:text="'Hashtag: '+${hashtag.name}"></h2>
+        <section class="hashtag-container">
+            <li class="hashtag-item" th:each="hashtag:${hashtags}">
+                <h2 th:text="${hashtag.name}"></h2>
                 <a th:href="'/hashtags/'+${hashtag.name}"> <img th:src="${hashtag.imageUrl}" lt="${hashtag.name}" class="image50"></a>
-                <article th:text="${hashtag.description}">A variety of video game played online with thousands of other people. This variety of video game exploded in popularity in the 2000's.</article>
+                <article th:text="${hashtag.description}"></article>
             </li>
         </section>
-        <section class="item">
-            <h2>#FamilyFriendly</h2>
-            <img src="./../static/images/familyfriendly.jpg" class="image50">
-            <article>Some games are meant for the hwole family! THese games have themes and content appropriate for all age levels.</article>
-        </section> 
-        <section class="item">
-            <h2>#Adventure</h2>
-            <img src="./../static/images/adventure.jpg" class="image50">
-            <article>The spirit of adventure lives on in gaming. Adventure games involve exploration, often involving a plot taking the player across the world.</article>
-        </section>   
-        <section class="item categories-item-1">
-            <h2>#Action</h2>
-            <img src="./../static/images/action.jpg" class="image50">
-            <article>Action games often involve quick decisions made in the spur of the moment. What will you do?!?!?!!?!?</article>
-        </section>          
     </div>
 <body>
