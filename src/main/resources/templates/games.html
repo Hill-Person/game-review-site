@@ -9,72 +9,66 @@
 </head>
 
 <body class= "body">
-<h1>Game Reviews Done Quick</h1>
-<div class="container">
-    <section class="item" th:each="category:${categories}">
-        <h2><a th:href="'/categories/'+${category.name}" th:text="${category.name}">Video Games</a></h2>
-        <ul class="home-games">
-            <li class="game-brief" th:each="game:${category.games}">
-                <h4  th:text="${game.name}"></h4>
-                <a th:href="'/games/'+${game.name}"><img class="image50" lt="${game.name}" th:src="${game.imageUrl}"></a>
-                <p th:text="${game.description}">
-                </p>
+    <div th:replace="fragments.html :: nav"></div>
+    <div class="container">
+        <section class="item" th:each="category:${categories}">
+            <h2 th:text="${category.name}"></h2>
+            <ul class="home-games">
+                <li class="game-brief" th:each="game:${category.games}">
+                    <h4  th:text="${game.name}"></h4>
+                    <a th:href="'/games/'+${game.name}"><img class="image50" lt="${game.name}" th:src="${game.imageUrl}"></a>
+                    <p th:text="${game.description}">
+                    </p>
 
-            </li>
-        </ul>
-    </section>
-</div>
+                </li>
+            </ul>
+        </section>
+    </div>
 
-<div class="hastags-container">
-    <section class="hashitem">
-        <h2><a href="/hashtags/">Search Games By Tag</a></h2>
+    <div class="hastags-container">
+        <section class="hashitem">
+            <h2>Enter your own game review below!</h2>
+        </section>
+    </div>
+    <div>
+        <form action="/games/add" method="POST" class="add-game">
+            <div class="form1">
+                <label for="name">Game Name: </label>
+                <input type="text" id="name" name="name">
 
-    </section>
-</div>
+                <label for="origin">Publisher: </label>
+                <input type="text" id="origin" name="origin">
 
-<article>Enter your own game review below!</article>
-<br>
+                <label for="releaseYear">Release Year: </label>
+                <input type="text" id="releaseYear" name="releaseYear">
 
-<div class="add-game">
-    <form action="/games/add" method="POST">
-        <label for="name">Name: </label><br>
-        <input type="text" id="name" name="name"><br>
+                <label for="description">Description: </label>
+                <input type="text" id="description" name="description">
 
-        <label for="origin">Publisher: </label><br>
-        <input type="text" id="origin" name="origin"><br>
+                <label for="reviewerRating">Rating (Out of 10): </label>
+                <input type="text" id="reviewerRating" name="reviewerRating">
+            </div>
+            <div class="form2">
+                <label for="categoryName">Choose a category:</label>
+                <select name="categoryName" id="categoryName">
+                    <option value="Video Games">Video Game</option>
+                    <option value="Board Games">Board Game</option>
+                </select>
+                <label for="similarGames">Similar Games: </label>
+                <input type="text" id="similarGames" name="similarGames">
 
-        <label for="releaseYear">Release Year: </label><br>
-        <input type="text" id="releaseYear" name="releaseYear"><br>
+                <label for="imageUrl">Image URL: </label>
+                <input type="text" id="imageUrl" name="imageUrl">
 
-        <label for="description">Description: </label><br>
-        <input type="text" id="description" name="description"><br>
+                <label for="reviewBy">Review By: </label>
+                <input type="text" id="reviewBy" name="reviewBy">
 
-        <label for="reviewerRating">Rating (Out of 10): </label><br>
-        <input type="text" id="reviewerRating" name="reviewerRating"><br>
-
-        <label for="categoryName">Choose a category:</label><br>
-        <select name="categoryName" id="categoryName">
-            <option value="Video Games">Video Game</option>
-            <option value="Board Games">Board Game</option>
-        </select>
-
-        <br>
-
-        <label for="similarGames">Similar Games: </label><br>
-        <input type="text" id="similarGames" name="similarGames"><br>
-
-        <label for="imageUrl">Image URL: </label><br>
-        <input type="text" id="imageUrl" name="imageUrl"><br>
-
-        <label for="reviewBy">Review By: </label><br>
-        <input type="text" id="reviewBy" name="reviewBy"><br>
-
-        <label for="review">Review: </label><br>
-        <input type="text" id="review" name="review"><br>
-
-        <input type="submit" value="Submit">
-    </form>
-</div>
+                <label for="review">Review: </label>
+                <input type="text" id="review" name="review">
+                <input type="submit" value="Submit">
+            </div>
+        </form>
+    </div>
 
 </body>
 </html>

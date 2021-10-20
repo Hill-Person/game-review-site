@@ -2,11 +2,12 @@
       xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Hashtags</title>
+    <title>Game Reviews Done Quick</title>
     <link rel="stylesheet" href="/CSS/Style.css">
     <link rel="stylesheet" href="/CSS/layout.css">
 </head>
 <body class="body">
+    <div th:replace="fragments.html :: nav"></div>
     <h1>Game Reviews Done Quick</h1>
     <div class="blurb-container">
         <h2 th:text="'Hashtag: ' + ${hashtag.name}"></h2>
@@ -17,7 +18,7 @@
                 <p th:text="'Title: ' + ${game.name}"></p>
                 <p th:text="'Description: ' + ${game.description}"></p>
                 <p th:text="'Similar Games: ' + ${game.similarGames}"></p>
-                <a href="/static/SquadLeader.html">Read the Review Here!</a>
+                <a th:href="'/games/'+${game.name}">Read the Review Here!</a>
             </li>
         </ul>
     </div>

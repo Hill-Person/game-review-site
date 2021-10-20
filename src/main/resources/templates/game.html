@@ -3,33 +3,67 @@
       xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Squad Leader</title>
+    <title>Game Reviews Done Quick</title>
     <link rel="stylesheet" href="/CSS/Style.css">
     <link rel="stylesheet" href="/CSS/layout.css">
 </head>
 <body class="reviewBody">
-    <h1>Game Reviews Done Quick</h1>
+    <div th:replace="fragments.html :: nav"></div>
     <h2 th:text="${game.name}"></h2>
     <div class="review-container">
         <section>
             <img class="reviewImage" th:src="${game.imageUrl}">
         </section>
-        <div class="review-body-container">
-            <div>
-                <h3 class="game-brief">
-                    <ul class="game-info">
-                        <li th:text="'Creator: ' + ${game.origin}"></li>
-                        <li th:text="'Release Year: ' + ${game.releaseYear}"></li>
-                        <li th:text="'Description: ' + ${game.description}"></li>
-                        <li th:text="'Similar Games: ' + ${game.similarGames}" ></li>
-                        <li th:text="'Review By: ' + ${game.reviewBy}"></li>
-                        <li th:text="'Rating: ' + ${game.reviewerRating}"></li>
-                    </ul>
-                </h3>
+        <div class="game-review">
+            <div class="review-body-container">
+                <div>
+                    <h3 class="game-brief">
+                        <ul class="game-info">
+                            <li>Hashtags: <p th:each="hashtag:${game.hashtags}"><a th:text="${hashtag.name}" th:href="'/hashtags/' + ${hashtag.name}"></a> </p></li>
+                            <li th:text="'Creator: ' + ${game.origin}"></li>
+                            <li th:text="'Release Year: ' + ${game.releaseYear}"></li>
+                            <li th:text="'Description: ' + ${game.description}"></li>
+                            <li th:text="'Similar Games: ' + ${game.similarGames}" ></li>
+                            <li th:text="'Rating: ' + ${game.reviewerRating}"></li>
+                        </ul>
+                    </h3>
+                </div>
             </div>
             <hr>
             <div class="game-brief" th:each="review:${game.reviews}">
-                <p th:text="${review}" class="review-text"></p>
+                <p th:utext="${review}" class="review-text"></p>
+            </div>
+        </div>
+    </div>
+    <div class="form-container>">
+        <hr>
+        <br>
+        <div class="forms">
+            <div class="submission-form">
+                <article>Add a Hashtag to the Game</article>
+                <form action="/games/addhashtag" method="POST">
+                    <label for="hashtagName">Hashtag Name</label><br>
+                    <input type="text" id="hashtagName" name="hashtagName" required><br>
+                    <label for="hashtagDescription">Hashtag Description</label><br>
+                    <input type="text" id="hashtagDescription" name="hashtagDescription" required><br>
+                    <label for="hashtagImageUrl">Hashtag Image URL</label><br>
+                    <input type="text" id="hashtagImageUrl" name="hashtagImageUrl" required><br>
+                    <input type="hidden" id="gamename" name="gamename" th:value="${game.name}">
+                    <input type="submit" value="Submit"><br>
+                </form>
+            </div>
+            <div class="submission-form">
+                <article>Add Your Own Review of a Game</article>
+                <form action="/games/addreview" method="POST">
+                    <label for="review">Enter Your Review Here</label>
+                    <br>
+                    <textarea id="review" name="review" rows="6" cols="50"></textarea>
+                    <br>
+                    <label for="reviewBy">Enter Name</label><br>
+                    <input type="text" id="reviewBy" name="reviewBy"><br>
+                    <input type="hidden" id="gamename" name="gamename" th:value="${game.name}">
+                    <input type="submit" value="Submit">
+                </form>
             </div>
         </div>
     </div>

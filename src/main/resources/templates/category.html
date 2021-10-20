@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="/CSS/layout.css">
 </head>
 <body class="categories-body">
-    <h1>Game Reviews Done Quick</h1>
+    <div th:replace="fragments.html :: nav"></div>
     <div class="blurb-container">
         <h2 th:text="'Category: ' + ${category.name}"></h2>
         <div>
@@ -20,7 +20,7 @@
                         <li th:text="'Title: ' + ${game.name}"></li>
                         <li th:text="'Description: ' + ${game.description}"></li>
                         <li th:text="'Similar Games: ' + ${game.similarGames}"></li>
-                        <a href="/static/SquadLeader.html">Read the Review Here!</a>
+                        <a th:href="'/games/'+${game.name}">Read the Review Here!</a>
                     </ul>
                 </div>
                 <hr>

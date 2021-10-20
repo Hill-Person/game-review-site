@@ -3,12 +3,12 @@
       xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Categories</title>
+    <title>Game Reviews Done Quick</title>
     <link rel="stylesheet" href="/CSS/Style.css">
     <link rel="stylesheet" href="/CSS/layout.css">
 </head>
 <body class="categories-body">
-    <h1>Game Reviews Done Quick</h1>
+    <div th:replace="fragments.html :: nav"></div>
     <div class="category-container">
         <ul>
             <li class="category-list" th:each="category:${categories}">

@@ -43,4 +43,8 @@ public class Category {
     public String getImageUrl() {
         return imageUrl;
     }
+
+    public long getId() {
+        return id;
+    }
 }

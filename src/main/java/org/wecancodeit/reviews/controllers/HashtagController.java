@@ -29,7 +29,7 @@ public class HashtagController {
 
     @RequestMapping("/hashtags/{name}")
     public String showHashtag(Model model, @PathVariable String name){
-        model.addAttribute("hashtag",hashtagRepo.findByNameIgnoreCase(name));
+        model.addAttribute("hashtag",hashtagRepo.findByNameIgnoreCase(name).get());
         return "hashtag";
     }
 }
