@@ -3,22 +3,12 @@
     flex-wrap: wrap;
 }
 
-.hashtags-container {
-    display: flex;
-    flex-wrap: wrap;
-}
 .item{
     width: 100%;
 }
 
 .hashitem {
     width: 100%;
-}
-
-@media screen and (min-width: 600px) {
-    .item{
-        width: 48%;
-    }
 }
 
 .reviewBody{
@@ -71,10 +61,6 @@
     flex-direction: column;
 }
 
-.game-image{
-    height: 55vh;
-}
-
 .category-container{
     display: flex;
 }
@@ -101,14 +87,16 @@
 
 .hashtag-container{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
 }
 
 .hashtag-item{
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    min-width: 500px;
+    justify-content: flex-start;
+    max-width: 500px;
 }
 
 .hashtag-image{
@@ -151,3 +139,9 @@
     background-color: #4E5180;
 }
 
+ @media only screen and (max-width: 770px){
+    .nav-items{
+        flex-direction: column;
+    }
+
+  }

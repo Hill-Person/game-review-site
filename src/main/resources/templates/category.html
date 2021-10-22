@@ -15,7 +15,7 @@
             <hr>
             <section th:each="game:${category.games}">
                 <div class="category-game-container">
-                    <img class="game-image" th:src="${game.imageUrl}">
+                    <img class="image50" th:src="${game.imageUrl}">
                     <ul class="blurb-text-container">
                         <li th:text="'Title: ' + ${game.name}"></li>
                         <li th:text="'Description: ' + ${game.description}"></li>

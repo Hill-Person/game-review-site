@@ -10,7 +10,7 @@
 <body class="categories-body">
     <div th:replace="fragments.html :: nav"></div>
     <div class="category-container">
-        <ul>
+        <ul class="categories-ul">
             <li class="category-list" th:each="category:${categories}">
                 <h2 th:text="'Category: ' + ${category.name}"></h2>
                 <article th:text="'Description: ' + ${category.description}"></article>

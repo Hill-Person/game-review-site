@@ -91,16 +91,16 @@ a:hover {
 }
 
 .image50 {
-    width: 75%;
+    width: 98%;
     align-items: center;
-    border-radius:50;
+    max-width: 700px;
 }
 
 .game-brief {
     background-color: #4E5180;
     border-radius: 15px;
     background-image: linear-gradient(to bottom, #4E5180, rgb(73, 52, 109) 90%);
-
+    max-width: 742px;
     
 }
 
@@ -143,10 +143,15 @@ nav{
     font-size: xx-large;
     color: #AAF0D1;
     border-radius: 15px;
-    /* background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgb(75, 75, 75) 90%); */
     flex-direction: column;
 }
 
 .nav-items{
     display: flex;
+    justify-content: space-evenly;
+}
+
+.categories-ul{
+    display: flex;
+    flex-wrap: wrap;
 }
